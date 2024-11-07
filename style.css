@@ -1,0 +1,86 @@
+/* Mengatur tampilan body agar form berada di tengah dengan latar belakang gradien biru dan putih */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #007bff, #ffffff);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Mengatur tampilan kalkulator dengan latar belakang putih, border biru, dan efek 3D */
+.calculator {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    border: 2px solid #007bff;
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+/* Mengatur tampilan judul dengan warna biru */
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Mengatur margin dan teks label input */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Mengatur tampilan label dengan warna abu-abu gelap */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Mengatur tampilan input dengan border biru dan efek fokus */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+/* Mengatur tampilan input saat fokus dengan border oranye */
+input:focus {
+    border-color: #ff5733;
+    outline: none;
+}
+
+/* Mengatur tampilan tombol dengan warna biru, efek hover, dan sedikit efek zoom */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Mengatur tampilan tombol saat di-hover dengan warna biru lebih gelap dan sedikit efek zoom */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Mengatur tampilan hasil dengan warna oranye dan margin atas */
+#hasil {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff5733;
+}
