@@ -15,7 +15,7 @@ function hitungNilai() {
 
     // Validasi input, memastikan semua nilai berada di antara 0 dan 100
     if (isNaN(tugas) || isNaN(uts) || isNaN(uas) || tugas < 0 || tugas > 100 || uts < 0 || uts > 100 || uas < 0 || uas > 100) {
-        alert('Masukkan nilai yang valid antara 0 dan 100 untuk semua komponen.');
+        showAlert('Masukkan nilai yang valid antara 0 dan 100 untuk semua komponen.');
         return;
     }
 
@@ -24,8 +24,13 @@ function hitungNilai() {
     const bobotUTS = 0.3;
     const bobotUAS = 0.4;
 
+    // Menghitung kontribusi masing-masing komponen nilai
+    const kontribusiTugas = tugas * bobotTugas;
+    const kontribusiUTS = uts * bobotUTS;
+    const kontribusiUAS = uas * bobotUAS;
+
     // Menghitung nilai akhir berdasarkan bobot masing-masing komponen
-    const nilaiAkhir = (tugas * bobotTugas) + (uts * bobotUTS) + (uas * bobotUAS);
+    const nilaiAkhir = kontribusiTugas + kontribusiUTS + kontribusiUAS;
 
     // Menentukan nilai huruf berdasarkan nilai akhir
     let nilaiHuruf;
@@ -41,6 +46,38 @@ function hitungNilai() {
         nilaiHuruf = 'E';
     }
 
+    // Menentukan status kelulusan
+    const lulus = nilaiAkhir >= 60;
+    const statusKelulusan = lulus ? 'Lulus' : 'Gagal';
+    const warnaStatus = lulus ? 'green' : 'red';
+
     // Menampilkan hasil perhitungan pada elemen dengan id 'hasil'
-    document.getElementById('hasil').innerText = `Nilai Akhir: ${nilaiAkhir.toFixed(2)} (${nilaiHuruf})`;
+    document.getElementById('kontribusiTugas').innerText = `${kontribusiTugas.toFixed(2)}`;
+    document.getElementById('kontribusiUTS').innerText = `${kontribusiUTS.toFixed(2)}`;
+    document.getElementById('kontribusiUAS').innerText = `${kontribusiUAS.toFixed(2)}`;
+    document.getElementById('rataRataTertimbang').innerText = `${nilaiAkhir.toFixed(2)} (${nilaiHuruf})`;
+    document.getElementById('statusKelulusan').innerText = `${statusKelulusan}`;
+    document.getElementById('statusKelulusan').style.color = warnaStatus;
+}
+
+// Fungsi untuk menampilkan modal alert
+function showAlert(message) {
+    const modal = document.getElementById('alertModal');
+    const alertMessage = document.getElementById('alertMessage');
+    alertMessage.innerText = message;
+    modal.style.display = 'block';
+}
+
+// Fungsi untuk menutup modal alert
+function closeModal() {
+    const modal = document.getElementById('alertModal');
+    modal.style.display = 'none';
+}
+
+// Menutup modal jika pengguna mengklik di luar modal
+window.onclick = function(event) {
+    const modal = document.getElementById('alertModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
 }

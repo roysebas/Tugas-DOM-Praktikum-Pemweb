@@ -1,36 +1,43 @@
-/* Mengatur tampilan body agar form berada di tengah dengan latar belakang gradien biru dan putih */
+/* Mengatur tampilan body agar form berada di tengah dengan latar belakang gradien */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #007bff, #ffffff);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
-/* Mengatur tampilan kalkulator dengan latar belakang putih, border biru, dan efek 3D */
-.calculator {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    text-align: center;
-    border: 2px solid #007bff;
-    transform: perspective(1000px) rotateX(10deg);
+/* Kontainer utama untuk kalkulator dan hasil */
+.container {
+    display: flex;
+    gap: 20px;
 }
 
-/* Mengatur tampilan judul dengan warna biru */
-h1 {
-    font-size: 1.8em;
+/* Mengatur tampilan kalkulator dengan latar belakang putih, border, dan efek bayangan */
+.calculator, .hasil {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Mengatur tampilan judul dengan warna gradien */
+h1, h2 {
+    font-size: 2em;
     margin-bottom: 20px;
-    color: #007bff;
+    background: -webkit-linear-gradient(#ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Mengatur margin dan teks label input */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
@@ -39,48 +46,103 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #555;
 }
 
-/* Mengatur tampilan input dengan border biru dan efek fokus */
+/* Mengatur tampilan input dengan border dan efek fokus */
 input {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     box-sizing: border-box;
     transition: border-color 0.3s;
 }
 
-/* Mengatur tampilan input saat fokus dengan border oranye */
+/* Mengatur tampilan input saat fokus dengan border warna gradien */
 input:focus {
-    border-color: #ff5733;
+    border-color: #ff7e5f;
     outline: none;
 }
 
-/* Mengatur tampilan tombol dengan warna biru, efek hover, dan sedikit efek zoom */
+/* Mengatur tampilan tombol dengan warna gradien, efek hover, dan sedikit efek zoom */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
-/* Mengatur tampilan tombol saat di-hover dengan warna biru lebih gelap dan sedikit efek zoom */
+/* Mengatur tampilan tombol saat di-hover dengan warna gradien lebih gelap dan sedikit efek zoom */
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
     transform: scale(1.05);
 }
 
-/* Mengatur tampilan hasil dengan warna oranye dan margin atas */
-#hasil {
-    margin-top: 20px;
-    font-size: 1.2em;
+/* Mengatur tampilan hasil dengan margin atas */
+.hasil {
+    text-align: left;
+}
+
+/* Mengatur tampilan tabel hasil */
+.hasil table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Mengatur tampilan sel tabel hasil */
+.hasil td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Mengatur lebar kolom kosong di tabel hasil */
+.hasil td:first-child {
+    width: 60%;
+}
+
+/* Mengatur tampilan modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
     font-weight: bold;
-    color: #ff5733;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
